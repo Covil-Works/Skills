@@ -26,9 +26,32 @@ A **docxt** padroniza a gestão de contexto e diretrizes do repositório atravé
 
 ## 📦 Como Instalar
 
-Para usar esta skill no seu projeto ou ambiente:
+### ⚡ Instalação Rápida via Terminal (Recomendado)
 
-### Opção 1: No seu projeto (Recomendado)
+Você pode instalar a skill com um único comando no terminal, sem precisar clonar ou baixar o repositório manualmente:
+
+#### No seu projeto (em `.agents/skills/docxt`):
+```bash
+npx degit Covil-Works/Skills/docxt/docxt .agents/skills/docxt
+```
+
+#### Globalmente na sua máquina:
+- **Linux/macOS:**
+  ```bash
+  npx degit Covil-Works/Skills/docxt/docxt ~/.gemini/config/skills/docxt
+  ```
+- **Windows (PowerShell):**
+  ```powershell
+  npx degit Covil-Works/Skills/docxt/docxt "$HOME/.gemini/config/skills/docxt"
+  ```
+
+---
+
+### 📂 Instalação Manual (Copiar e Colar)
+
+Caso prefira baixar ou copiar os arquivos manualmente:
+
+#### Opção 1: No seu projeto
 Copie a pasta interna `docxt/` para a pasta de skills do seu repositório:
 ```text
 seu-projeto/
@@ -37,7 +60,7 @@ seu-projeto/
         └── docxt/         <-- Cole a pasta aqui (contendo o SKILL.md)
 ```
 
-### Opção 2: Globalmente na sua máquina
+#### Opção 2: Globalmente na sua máquina
 Copie a pasta interna `docxt/` para a pasta de configurações de skills do seu usuário:
 - **Windows**: `%USERPROFILE%\.gemini\config\skills\docxt\`
 - **Linux/macOS**: `~/.gemini/config/skills/docxt/`
