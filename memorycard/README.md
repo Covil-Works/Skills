@@ -1,103 +1,54 @@
 # memorycard
 
-Skill para gerenciamento ágil de tarefas e projetos via CLI local, integrada ao fluxo de trabalho de agentes de IA.
+Skill para agentes de IA gerenciarem tarefas e preservarem o contexto operacional do projeto utilizando a ferramenta [MemoryCard](https://github.com/Covil-Works/MemoryCard).
 
-> 🔗 **Repositório oficial da ferramenta:** [Covil-Works/MemoryCard](https://github.com/Covil-Works/MemoryCard)
-
----
-
-## 🎯 O que faz
-
-A **memorycard** permite que o agente gerencie o ciclo de vida completo de tarefas diretamente do terminal ou board visual:
-- **Alinhamento prévio reativo:** Antes de iniciar qualquer feature ou refatoração, o agente verifica tarefas existentes ou oferece criar uma nova task.
-- **Operação de tarefas via CLI:** Criação, checklists (`todo`), status (`in-progress`, `done`), comentários e consulta rápida de contexto.
-- **Board em tempo real:** Interface visual no navegador acionada via `memorycard open` sincronizada por Server-Sent Events (SSE).
+Esta skill ensina o agente a operar o MemoryCard para você, alinhando tarefas antes de codificar, atualizando checklists e registrando o histórico de desenvolvimento.
 
 ---
 
-## ⚙️ Pré-requisito: Ferramenta MemoryCard CLI
+## O que a Skill faz
 
-Para que o agente consiga operar esta skill, o comando `memorycard` deve estar acessível no terminal:
-
-```bash
-# 1. Clone o repositório da ferramenta (caso ainda não tenha)
-git clone https://github.com/Covil-Works/MemoryCard.git
-cd MemoryCard
-
-# 2. Instale as dependências e registre globalmente no sistema
-npm install
-npm link
-
-# 3. Teste se está funcionando
-memorycard --version
-```
+Quando instalada no seu projeto, a skill orienta o agente a:
+- **Alinhamento prévio automático:** Antes de iniciar qualquer feature ou refatoração, o agente verifica tarefas em aberto ou pergunta se você deseja registrar uma task para acompanhar o trabalho.
+- **Gerenciamento contínuo de tarefas:** Sob seu comando, o agente cria tasks, move status (`todo`, `in-progress`, `done`), marca checklists de progresso e insere comentários técnicos.
+- **Verificação de ambiente:** Se a CLI do [MemoryCard](https://github.com/Covil-Works/MemoryCard) não estiver instalada na máquina, o agente detecta e orienta os passos necessários para habilitá-la.
 
 ---
 
-## 🚀 Comandos Rápidos da CLI
+## Como usar a Skill no chat com o Agente
 
-| Comando | Descrição |
+Você pode acionar o comportamento da skill conversando normalmente com o agente:
+
+| O que você fala | O que a skill faz |
 | :--- | :--- |
-| `memorycard current` | Exibe a task atualmente em andamento. |
-| `memorycard create "<título>" -d "<descrição>"` | Cria uma nova task no projeto. |
-| `memorycard list` | Lista todas as tarefas cadastradas. |
-| `memorycard todo add <id> "<passo>"` | Adiciona um item ao checklist da task. |
-| `memorycard todo done <id> <n>` | Conclui o item `n` (1-based) do checklist. |
-| `memorycard move <id> <status>` | Move a task de coluna (`todo`, `in-progress`, `done`). |
-| `memorycard open` | Abre a interface visual do board no navegador. |
+| *"Onde a gente parou?"* / *"Qual o status do trabalho?"* | Consulta a tarefa ativa e o contexto recente no MemoryCard. |
+| *"Cria uma task para [X]"* | Cria uma nova tarefa com título e descrição. |
+| *"Vamos detalhar os passos dessa task"* | Adiciona itens ao checklist da tarefa em andamento. |
+| *"Marca o passo 1 como feito"* | Atualiza o checklist da tarefa. |
+| *"Finaliza a task"* | Move a tarefa para concluída (`done`). |
+| *"Abre o board no navegador"* | Inicia o servidor local e abre o painel visual do MemoryCard. |
 
 ---
 
-## 📦 Como Instalar esta Skill
+## Como Instalar
 
-### ⚡ Instalação Rápida via Terminal (Recomendado)
+### Via Terminal com npx degit (Recomendado)
 
-Você pode instalar a skill com um único comando no terminal, sem precisar clonar ou baixar o repositório manualmente:
+Instale no diretório de skills do seu projeto:
 
-#### No seu projeto (em `.agents/skills/memorycard`):
 ```bash
 npx degit Covil-Works/Skills/memorycard/memorycard .agents/skills/memorycard
 ```
 
-*(Ou diretamente do repositório da ferramenta: `npx degit covil-works/memorycard/skills/memorycard .agents/skills/memorycard`)*
-
-#### Globalmente na sua máquina:
-- **Linux/macOS:**
-  ```bash
-  npx degit Covil-Works/Skills/memorycard/memorycard ~/.gemini/config/skills/memorycard
-  ```
-- **Windows (PowerShell):**
-  ```powershell
-  npx degit Covil-Works/Skills/memorycard/memorycard "$HOME/.gemini/config/skills/memorycard"
-  ```
-
 ---
 
-### 📂 Instalação Manual (Copiar e Colar)
+### Manualmente (Copiar e Colar)
 
-Caso prefira baixar ou copiar os arquivos manualmente:
-
-#### Opção 1: No seu projeto
 Copie a pasta interna `memorycard/` para a pasta de skills do seu repositório:
+
 ```text
 seu-projeto/
 └── .agents/
     └── skills/
         └── memorycard/         <-- Cole a pasta aqui (contendo o SKILL.md)
-```
-
-#### Opção 2: Globalmente na sua máquina
-Copie a pasta interna `memorycard/` para a pasta de configurações de skills do seu usuário:
-- **Windows**: `%USERPROFILE%\.gemini\config\skills\memorycard\`
-- **Linux/macOS**: `~/.gemini/config/skills/memorycard/`
-
----
-
-## 📂 Estrutura desta pasta
-
-```text
-memorycard/
-├── README.md                  # Este manual de uso e instalação
-└── memorycard/                # 📦 Pasta plug-and-play da skill
-    └── SKILL.md               # Instruções e rotinas lidas pelo agente
 ```

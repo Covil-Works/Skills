@@ -4,9 +4,9 @@ Skill para inicialização e governança contínua de documentação técnica e 
 
 ---
 
-## 🎯 O que faz
+## O que faz
 
-A **docxt** padroniza a gestão de contexto e diretrizes do repositório através de:
+A docxt padroniza a gestão de contexto e diretrizes do repositório através de:
 - **`AGENTS.md` raiz**: Ponto de entrada obrigatório para agentes, garantindo que consultem a documentação antes de implementar qualquer funcionalidade.
 - **Índice temático central (`/docs/index.md`)**: Visão geral de alta legibilidade com tópicos e escopos mapeados em `kebab-case`.
 - **Regras com IDs únicos sequenciais**: Cada instrução ou convenção recebe um identificador do tipo `[nome-do-arquivo]-[001]`, prevenindo duplicidades e facilitando referências diretas.
@@ -14,7 +14,7 @@ A **docxt** padroniza a gestão de contexto e diretrizes do repositório atravé
 
 ---
 
-## 🚀 Modos de Uso
+## Modos de Uso
 
 | Comando / Gatilho | Ação |
 | :--- | :--- |
@@ -24,54 +24,25 @@ A **docxt** padroniza a gestão de contexto e diretrizes do repositório atravé
 
 ---
 
-## 📦 Como Instalar
+## Como Instalar
 
-### ⚡ Instalação Rápida via Terminal (Recomendado)
+### Via Terminal com npx degit (Recomendado)
 
-Você pode instalar a skill com um único comando no terminal, sem precisar clonar ou baixar o repositório manualmente:
+Instale no diretório de skills do seu projeto:
 
-#### No seu projeto (em `.agents/skills/docxt`):
 ```bash
 npx degit Covil-Works/Skills/docxt/docxt .agents/skills/docxt
 ```
 
-#### Globalmente na sua máquina:
-- **Linux/macOS:**
-  ```bash
-  npx degit Covil-Works/Skills/docxt/docxt ~/.gemini/config/skills/docxt
-  ```
-- **Windows (PowerShell):**
-  ```powershell
-  npx degit Covil-Works/Skills/docxt/docxt "$HOME/.gemini/config/skills/docxt"
-  ```
-
 ---
 
-### 📂 Instalação Manual (Copiar e Colar)
+### Manualmente (Copiar e Colar)
 
-Caso prefira baixar ou copiar os arquivos manualmente:
-
-#### Opção 1: No seu projeto
 Copie a pasta interna `docxt/` para a pasta de skills do seu repositório:
+
 ```text
 seu-projeto/
 └── .agents/
     └── skills/
         └── docxt/         <-- Cole a pasta aqui (contendo o SKILL.md)
-```
-
-#### Opção 2: Globalmente na sua máquina
-Copie a pasta interna `docxt/` para a pasta de configurações de skills do seu usuário:
-- **Windows**: `%USERPROFILE%\.gemini\config\skills\docxt\`
-- **Linux/macOS**: `~/.gemini/config/skills/docxt/`
-
----
-
-## 📂 Estrutura desta pasta
-
-```text
-docxt/
-├── README.md              # Este manual de uso e instalação
-└── docxt/                 # 📦 Pasta plug-and-play da skill
-    └── SKILL.md           # Definição e instruções executadas pelo agente
 ```
